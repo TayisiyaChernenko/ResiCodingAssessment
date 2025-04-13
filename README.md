@@ -24,7 +24,7 @@ export NASA_API_KEY=your_api_key_here
 1. Build and run the container:
 ```bash
 docker build -t mars-rover .
-docker run mars-rover .  
+docker run -v $(pwd)/src/main/resources/images:/app/src/main/resources/images --env-file .env mars-rover
 ```
 
 The program will:
