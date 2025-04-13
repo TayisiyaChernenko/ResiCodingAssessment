@@ -26,6 +26,6 @@ public class DateNormalization {
             catch(DateTimeParseException ignored){}
         }
         // If here, no match was found or the data does not exist
-        return "Invalid date: " + rawDate;
+        return "Invalid date";
     }
 }
