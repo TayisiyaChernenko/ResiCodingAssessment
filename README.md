@@ -5,7 +5,6 @@ This project downloads photos from NASA's Mars Rover API for specified dates loc
 ## Prerequisites
 
 - Docker
-- Docker Compose
 
 ## Setup
 
@@ -24,7 +23,8 @@ export NASA_API_KEY=your_api_key_here
 
 1. Build and run the container:
 ```bash
-docker-compose up --build
+docker build -t mars-rover .
+docker run mars-rover .  
 ```
 
 The program will:

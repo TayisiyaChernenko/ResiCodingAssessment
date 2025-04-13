@@ -1,9 +1,0 @@
-version: '3.8'
-
-services:
-  mars-rover:
-    build: .
-    volumes:
-      - ./src/main/resources/images:/app/src/main/resources/images
-    environment:
-      - NASA_API_KEY=${NASA_API_KEY:-DEMO_KEY} 

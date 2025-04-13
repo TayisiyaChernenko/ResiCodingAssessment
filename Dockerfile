@@ -4,17 +4,20 @@ FROM openjdk:17-jdk-slim
 # Set working directory
 WORKDIR /app
 
-# Copy the project files
-COPY . .
-
 # Create necessary directories
-RUN mkdir -p lib src/main/resources/images
+RUN mkdir -p lib src/main/resources/images bin/classes
 
-# Download the JSON library
-RUN curl -L https://repo1.maven.org/maven2/org/json/json/20231013/json-20231013.jar -o lib/json-20231013.jar
+# Copy the project files
+COPY src src/
+COPY lib lib/
 
-# Compile the Java files
+# Copy resource files explicitly
+COPY src/main/resources/dates.txt src/main/resources/
+COPY src/main/resources/images-demo/* src/main/resources/images/
+
+# Compile the Java files, including resources
 RUN javac -d bin/classes -cp ".:lib/*" src/main/java/Main.java src/main/java/DateNormalization.java src/main/java/MarsRoverClient.java
+RUN cp -r src/main/resources/* bin/classes/
 
-# Set the entry point
-ENTRYPOINT ["java", "-cp", "bin/classes:lib/*", "main.java.Main"] 
+# Set the entry point with src/main/resources in classpath
+ENTRYPOINT ["java", "-cp", "bin/classes:lib/*:src/main/resources", "main.java.Main"] 
