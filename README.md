@@ -49,26 +49,11 @@ javac -d bin/classes -cp ".:lib/*" src/main/java/Main.java src/main/java/DateNor
 
 ### Running the Program
 
-#### Using the .env file (Recommended)
-
-1. Make sure your NASA API key is in the .env file:
-```bash
-# Check the current .env file
-cat .env
-# If needed, update it with your key
-echo "NASA_API_KEY=your_key_here" > .env
-```
-
-2. Run the program using the .env file:
-```bash
-source .env && java -cp "bin/classes:lib/*" main.java.Main
-```
-
 #### Using Environment Variable
 
-Alternatively, you can set the API key directly:
+You can set the API key directly:
 ```bash
-export NASA_API_KEY=your_key_here
+export NASA_API_KEY=c534E5bnpF7UEtgrjrv7OUED4BgdsS7e9FPsPBDv
 java -cp "bin/classes:lib/*" main.java.Main
 ```
 
@@ -77,10 +62,7 @@ java -cp "bin/classes:lib/*" main.java.Main
 If you encounter issues:
 
 1. Check your API key:
-```bash
-# Verify the .env file contents
-cat .env
-# Or check the environment variable
+# Check the environment variable
 echo $NASA_API_KEY
 ```
 
