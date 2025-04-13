@@ -13,7 +13,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class MarsRoverClient {
-    private static final String API_KEY = "DEMO_KEY"; // Replace with your NASA API key
+    private static final String API_KEY = System.getenv("NASA_API_KEY");
     private static final String BASE_URL = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos";
     private static final String IMAGE_DIR = "src/main/resources/images";
     private final HttpClient httpClient;
@@ -71,7 +71,7 @@ public class MarsRoverClient {
         }
     }
 
-    //only exposed method for Main to use
+    //only exposed method for Main to call, abstracts a
     public void downloadPhotosForDate(String date) throws IOException, InterruptedException {
         String response = getPhotosForDate(date);
         JSONObject jsonResponse = new JSONObject(response);

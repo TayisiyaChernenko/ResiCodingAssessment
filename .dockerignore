@@ -1,0 +1,20 @@
+# Git
+.git
+.gitignore
+
+# IDE
+.idea
+.vscode
+*.iml
+
+# Build outputs
+bin/
+target/
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Downloaded images
+src/main/resources/images/* 
